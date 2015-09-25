@@ -1,0 +1,63 @@
+<%= form_for @product,:html => { class: "form-horizontal"  } do |f| %>
+
+
+    <div class="form-group">
+      <%= f.label :name,class: "col-lg-3 col-sm-3 control-label" %>
+      <div class="col-lg-9">
+        <%= f.text_field :name ,class: "form-control" %>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <%= f.label :description,class: "col-lg-3 col-sm-3 control-label" %>
+      <div class="col-lg-9">
+        <%= f.text_area :description,class: "form-control" %>
+      </div>
+
+    </div>
+
+    <div class="form-group">
+
+      <%= f.label :content,class: "col-lg-3 col-sm-3 control-label" %>
+      <div class="col-lg-9">
+        <%= f.text_area :content,class: "form-control"  %>
+      </div>
+
+    </div>
+
+    <div class="form-group">
+
+      <%= f.label :display,class: "col-lg-3 col-sm-3 control-label" %>
+      <div class="col-lg-9">
+        <%= f.label :hide,class: "control-label"%>
+        <%= f.radio_button(:display,1,:checked => @product.display == true) %>
+        <%= f.label :show,class: 'control-label' %>
+        <%= f.radio_button(:display,0,:checked => @product.display == false) %>
+      </div>
+
+    </div>
+
+    <div class="form-group">
+      <%= f.label :product_category_id,class: "col-lg-3 col-sm-3 control-label"%>
+      <div class="col-lg-9">
+        <%= f.select :product_category_id, @product_category,{prompt: "Select Categories"},{class: "form-control"}
+        %>
+      </div>
+    </div>
+
+
+    <div class="form-group">
+      <%= f.label :avatar,class: "col-lg-3 col-sm-3 control-label"%>
+      <div class="col-lg-9">
+        <%= f.file_field :avatar %>
+      </div>
+    </div>
+
+
+        <%= f.submit :Submit,class: "btn btn-primary"%>
+        <a href="<%= products_path %>">Quay lại</a>
+      </div>
+
+    </div>
+
+<% end %>

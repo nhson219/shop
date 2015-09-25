@@ -1,0 +1,28 @@
+Tên sản phẩm : <%= @product.name %> <br/>
+Mô tả : <%= @product.description %> <br/>
+Nội dung : <%= @product.content%> <br/>
+Danh mục : <%= @product.product_category.name %><br/>
+<!--<%= image_tag(@product.avatar) if @product.avatar? %>-->
+
+<div style="margin-top: 20px;">
+Bình luận
+<div style="margin-top: 20px;">
+<ul>
+<% @comments.each do |item| %>
+
+  <li><%= item.content %></li>
+
+<% end %>
+</ul>
+</div>
+<%= form_for @comment,:html => { class: 'form-horizontal' } do |f| %>
+
+    <%= f.text_field :content,class: "form-control" %>
+    <%= hidden_field_tag(:product_id,@product.id) %>
+    <div class="form-group" style="margin-top: 10px;">
+      <div class="col-lg-offset-3 col-lg-9">
+    <%= f.submit "Gửi",class: "btn btn-primary" %>
+      </div>
+    </div>
+<% end %>
+</div>

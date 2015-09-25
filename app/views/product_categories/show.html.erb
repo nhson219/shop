@@ -1,0 +1,14 @@
+Tên danh mục : <%= @product_category.name %><br/>
+Mô tả : <%= @product_category.description %><br/>
+Nội dung <%= @product_category.content %><br/>
+Hiển thị <%= @product_category.display %><br/>
+
+Danh sách sản phẩm : <br/>
+
+<% @product_category.products.each do |item| %>
+
+    <%= item.name %><br/>
+
+<% end %>
+
+<%= link_to "Quay lại",product_categories_path,class: "btn btn-primary" %>

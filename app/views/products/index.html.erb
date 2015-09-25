@@ -1,0 +1,39 @@
+<a href="/products/new" class="btn btn-primary" style="margin-bottom: 20px;">Thêm</a>
+
+
+<table class="table table-bordered table-striped table-condensed">
+  <thead>
+  <tr>
+    <th>
+      ID
+    </th>
+    <th>Tên sản phẩm</th>
+    <th>Mô tả</th>
+    <th>Hiển thị</th>
+    <th>Ngày tạo</th>
+    <th>Thao tác</th>
+  </tr>
+  </thead>
+  <tbody>
+
+  <% @product.each do |item| %>
+
+  <tr>
+    <td><%= item.id%></td>
+    <td><a href="<%= product_path item.id %>"><%= item.name%></a></td>
+    <td><%= item.description%></td>
+    <td><%= item.display%></td>
+    <td><%= item.created_at%></td>
+    <td>
+      <%= link_to "Sửa",edit_product_path(item.id),class: 'btn btn-success btn-xs tooltips' %>
+      <!--<a href="https://cms.bizicare.com/users/show_detail/agency_id/1" class="btn btn-success btn-xs tooltips">Sửa</a>-->
+      <%= link_to "Xoá", item , method: :delete    %>
+      <!--<a href="https://cms.bizicare.com/users/edit/id/1" class="btn btn-primary btn-xs tooltips">Xoá</a>-->
+      <!--<a href="" class="btn btn-danger btn-xs tooltips" data-original-title="Xóa" data-placement="top"><i class="fa fa-trash-o "></i></a>-->
+    </td>
+  </tr>
+
+  <% end %>
+
+  </tbody>
+</table>

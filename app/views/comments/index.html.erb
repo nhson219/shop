@@ -1,0 +1,27 @@
+<table class="table table-bordered table-striped table-condensed">
+  <thead>
+  <tr>
+    <th>
+      ID
+    </th>
+    <th>Nội dung</th>
+    <th>Ngày tạo</th>
+    <th>Sản phẩm</th>
+    <th>Thao tác</th>
+  </tr>
+  </thead>
+  <tbody>
+
+  <% @comments.each do |item| %>
+
+    <tr>
+      <td><%= item.id%></td>
+      <td><%= item.content%></td>
+      <td><%= item.created_at%></td>
+      <td><%= item.commentable.name%></td>
+      <td><%= link_to "Xoá", item , method: :delete %></td>
+    </tr>
+
+  <% end %>
+  </tbody>
+</table>

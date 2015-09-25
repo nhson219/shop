@@ -1,0 +1,41 @@
+<a href="/news/new" class="btn btn-primary" style="margin-bottom: 20px;">Thêm</a>
+
+<table class="table table-bordered table-striped table-condensed">
+  <thead>
+  <tr>
+    <th>
+      ID
+    </th>
+    <th>Tên</th>
+    <th>Mô tả</th>
+    <th>Hiển thị</th>
+    <th>Ngày tạo</th>
+    <th>Thao tác</th>
+  </tr>
+  </thead>
+  <tbody>
+
+
+    <%
+       if !@news.empty?
+       @news.each do |item| %>
+            <tr>
+              <td><%= item.name %></td>
+              <td><%= item.description%></td>
+              <td><%= item.display %></td>
+              <td><%= item.created_at %></td>
+              <td><%= link_to "Sửa",item.id %></td>
+            </tr>
+    <% end
+        else
+    %>
+            <tr>
+              <td colspan="6">No data</td>
+            </tr>
+    <%
+       end
+    %>
+  </tbody>
+
+
+</table>
